@@ -18,7 +18,11 @@ import NewNote from "./features/notes/NewNote";
 import PersistLogin from "./features/auth/PersistLogin";
 import { ROLES } from "./config/roles";
 import useTitle from "./hooks/useTitle";
+import { disableReactDevTools } from "@fvilers/disable-react-devtools";
 
+if (process.env.NODE_ENV === "production") {
+  disableReactDevTools();
+}
 const App = () => {
   useTitle("Dand repairs");
   return (
