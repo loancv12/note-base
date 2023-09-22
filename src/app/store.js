@@ -11,7 +11,7 @@ export const store = configureStore({
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(apiSlice.middleware),
-  // devTools: true,
+  devTools: false,
 });
 
 // refresh data at some type of interval
