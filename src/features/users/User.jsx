@@ -8,7 +8,6 @@ import { memo } from "react";
 const User = ({ userId }) => {
   const { user } = useGetUsersQuery("usersList", {
     selectFromResult: ({ data }) => {
-      console.log("getALLusers");
       return { user: data?.entities[userId] };
     },
   });

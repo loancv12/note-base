@@ -266,6 +266,7 @@ tr {
   display: flex;
   align-items: center;
   width: fit-content;
+  width: -moz-fit-content;
   gap: 0.5em;
 }
 

@@ -8,7 +8,6 @@ const EditUser = () => {
 
   const { user } = useGetUsersQuery("usersList", {
     selectFromResult: ({ data }) => {
-      console.log("getALLusers");
       return { user: data?.entities[id] };
     },
   });
