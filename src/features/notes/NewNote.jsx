@@ -6,7 +6,6 @@ import { useGetUsersQuery } from "../users/usersApiSlice";
 const NewNote = () => {
   const { users } = useGetUsersQuery("usersList", {
     selectFromResult: ({ data }) => {
-      console.log(data);
       return {
         users: data?.ids.map((id) => data?.entities[id]),
       };

@@ -6,7 +6,6 @@ const RequiredAuth = ({ allowedRoles }) => {
   const location = useLocation();
   // debugger;
   const { roles } = useAuth();
-  console.log("roles", roles);
   const content = roles.some((role) => allowedRoles.includes(role)) ? (
     <Outlet />
   ) : (

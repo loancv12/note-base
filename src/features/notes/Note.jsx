@@ -9,8 +9,6 @@ import { memo } from "react";
 const Note = ({ noteId }) => {
   const { note } = useGetNotesQuery("notesList", {
     selectFromResult: ({ data }) => {
-      console.log("useGetNotesQuery");
-
       return { note: data?.entities[noteId] };
     },
   });

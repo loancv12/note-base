@@ -11,14 +11,11 @@ const EditNote = () => {
 
   const { note } = useGetNotesQuery("notesList", {
     selectFromResult: ({ data }) => {
-      console.log("useGetNotesQuery");
-
       return { note: data?.entities[id] };
     },
   });
   const { users } = useGetUsersQuery("usersList", {
     selectFromResult: ({ data }) => {
-      console.log(data);
       return {
         users: data?.ids.map((id) => data?.entities[id]),
       };
@@ -27,7 +24,6 @@ const EditNote = () => {
 
   if (!note || !users?.length) return <PulseLoader color="#fff" />;
   if (!isManager && !isAdmin) {
-    console.log("role of Dnad", note.username);
     if (note.username !== username) {
       return <p className="errmsg">No access</p>;
     }
