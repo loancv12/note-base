@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import Layout from "./components/Layout";
 import NotFound from "./components/NotFound";
 import Public from "./components/Public";
@@ -12,19 +12,20 @@ import UsersList from "./features/users/UsersList";
 import EditNote from "./features/notes/EditNote";
 import EditUser from "./features/users/EditUser";
 import NewUserForm from "./features/users/NewUserForm";
-import NewNoteForm from "./features/notes/NewNoteForm";
 import Prefetch from "./features/auth/Prefetch";
 import NewNote from "./features/notes/NewNote";
 import PersistLogin from "./features/auth/PersistLogin";
 import { ROLES } from "./config/roles";
 import useTitle from "./hooks/useTitle";
 import { disableReactDevTools } from "@fvilers/disable-react-devtools";
+import ImportSheet from "./components/ImportSheet";
 
 if (process.env.NODE_ENV === "production") {
   disableReactDevTools();
 }
 const App = () => {
   useTitle("Dand repairs");
+  const navigate = useNavigate();
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
@@ -47,6 +48,7 @@ const App = () => {
                   <Route index element={<NotesList />} />
                   <Route path=":id" element={<EditNote />} />
                   <Route path="new" element={<NewNote />} />
+                  <Route path="import" element={<ImportSheet />} />
                 </Route>
 
                 {/* routes for manager and admin */}

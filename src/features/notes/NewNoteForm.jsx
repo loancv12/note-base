@@ -5,7 +5,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSave } from "@fortawesome/free-solid-svg-icons";
 
 const NewNoteForm = ({ users }) => {
-  console.log("users", users);
   const [addNewNote, { isLoading, isSuccess, isError, error }] =
     useAddNewNoteMutation();
 
@@ -16,7 +15,6 @@ const NewNoteForm = ({ users }) => {
   const [userId, setUserId] = useState(users[0].id);
 
   useEffect(() => {
-    console.log(navigate);
     if (isSuccess) {
       setTitle("");
       setText("");

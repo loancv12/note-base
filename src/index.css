@@ -43,6 +43,17 @@
   white-space: nowrap;
 }
 
+.visually-hidden {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+}
+input.visually-hidden:is(:focus, :focus-within) + label {
+  outline: thin dotted;
+}
+
 .icon-button {
   width: 48px;
   height: 48px;
@@ -195,13 +206,28 @@ tr {
   display: contents;
 }
 
-.table {
+.table,
+.table--preview {
   font-size: 1rem;
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
   color: var(--TABLE-COLOR);
   gap: 0.1em;
+}
+.table {
+  grid-template-columns: 1fr 2fr 1fr;
+}
+.table--preview.column-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.table--preview.column-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.table--notes {
+  grid-template-columns: auto;
 }
 
 .table__button {
@@ -210,12 +236,20 @@ tr {
   color: var(--TABLE-COLOR);
 }
 
+/* .table--preview thead,  */
 .table__thead {
   position: sticky;
   top: 0;
   z-index: 1;
 }
 
+/* .table--preview th. */
+.table__th {
+  text-transform: capitalize;
+}
+
+/* .table--preview th, */
+/* .table--preview td,  */
 .table__th,
 .table__cell {
   background-color: var(--TABLE-BGCOLOR);
@@ -304,7 +338,9 @@ tr {
 }
 
 .form__select {
+  width: -moz-fit-content;
   width: fit-content;
+
   padding: 0.25em;
 }
 

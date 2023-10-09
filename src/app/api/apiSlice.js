@@ -5,11 +5,12 @@ const baseQuery = fetchBaseQuery({
   baseUrl: "https://notebaseapi.onrender.com",
   // baseUrl: "http://localhost:3000",
   credentials: "include",
-  prepareHeaders: (headers, { getState }) => {
+  prepareHeaders: (headers, { getState, extra }) => {
     const token = getState().auth.token;
     if (token) {
       headers.set("authorization", `Bearer ${token}`);
     }
+
     return headers;
   },
 });

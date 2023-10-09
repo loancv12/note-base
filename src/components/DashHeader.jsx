@@ -6,6 +6,7 @@ import {
   faFilePen,
   faUserGear,
   faUserPlus,
+  faArrowDown,
 } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate, Link, useLocation } from "react-router-dom";
 
@@ -16,7 +17,7 @@ const DASH_REGEX = /^\/dash(\/)?$/;
 const NOTES_REGEX = /^\/dash\/notes(\/)?$/;
 const USERS_REGEX = /^\/dash\/users(\/)?$/;
 
-const DashHeader = () => {
+const DashHeader = ({ exportFile }) => {
   const { isManager, isAdmin } = useAuth();
 
   const navigate = useNavigate();
